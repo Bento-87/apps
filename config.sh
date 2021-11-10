@@ -11,7 +11,7 @@ then
 fi
 
 echo "************* Instalando pacotes disponiveis via APT ********************"
-sudo apt install geany -y vlc gimp gparted timeshift redshift redshift-gtk qbittorrent indicator-cpufreq indicator-sensors indicator-multiload htop default-jdk cpu-checker
+sudo apt install geany -y vlc gimp mysql-client gparted timeshift redshift redshift-gtk qbittorrent indicator-cpufreq indicator-sensors indicator-multiload htop default-jdk cpu-checker vim
 
 # Verifica se o kvm pode ser utilizado, melhora a virtualização do android studio
 if [ "$(kvm-ok |grep 'can be used')" ];
