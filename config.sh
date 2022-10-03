@@ -11,7 +11,7 @@ then
 fi
 
 echo "************* Instalando pacotes disponiveis via APT ********************"
-sudo apt install geany -y vlc gimp mysql-client gparted qbittorrent indicator-cpufreq indicator-sensors htop cpu-checker vim
+sudo apt install geany -y vlc pavucontrol gimp mysql-client gparted qbittorrent indicator-cpufreq indicator-sensors htop cpu-checker vim android-tools-adb android-tools-fastboot unzip
 
 # Verifica se o kvm pode ser utilizado, melhora a virtualização do android studio
 if [ "$(kvm-ok |grep 'can be used')" ];
@@ -21,11 +21,11 @@ then
 fi;
 
 echo "************* Instalando pacotes via SNAP ****************************"
-snaps=("android-studio" "netbeans" "pycharm-community" "postman" "mysql-workbench-community")
+snaps=("android-studio" "netbeans" "pycharm-community" "postman")
 for pkg in "${snaps[@]}"
 do
 	echo "*************** Instalando pacote $pkg ***********************"
-	if [ "$pkg" == "postman" ] || [ "$pkg" == "mysql-workbench-community" ];
+	if [ "$pkg" == "postman" ];
 	then
 		sudo snap install $pkg
 	else
@@ -36,8 +36,13 @@ done
 #Instala o grub e outras coisinhas (PopOs)
 if [ "$(cat /etc/lsb-release |grep Pop)" ];
 then
-	sudo apt install grub-efi grub2-common grub-customizer
+	sudo apt install grub-efi grub2-common default-jdk -y
 	sudo grub-install
 	sudo cp /boot/grub/x86_64-efi/grub.efi /boot/efi/EFI/pop/grubx64.efi
-	sudo apt install gnome-shell-extension-system-monitor gnome-shell-extension-volume-mixer default-jdk 
+fi;
+
+#Instala jdk e outras coisinhas (Ubuntu)
+if [ "$(cat /etc/lsb-release |grep DISTRIB_ID=Ubuntu)" ];
+then
+	sudo apt default-jdk git curl -y
 fi;
