@@ -21,11 +21,11 @@ then
 fi;
 
 echo "************* Instalando pacotes via SNAP ****************************"
-snaps=("android-studio" "netbeans" "pycharm-community" "postman")
+snaps=("android-studio" "netbeans" "pycharm-community" "postman", "intellij-idea-community")
 for pkg in "${snaps[@]}"
 do
 	echo "*************** Instalando pacote $pkg ***********************"
-	if [ "$pkg" == "postman" ];
+	if [ "$pkg" == "postman" || "$pkg" == "intellij-idea-community" ];
 	then
 		sudo snap install $pkg
 	else
