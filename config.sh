@@ -17,7 +17,7 @@ sudo apt install geany -y vlc pavucontrol gimp mysql-client gparted qbittorrent 
 if [ "$(kvm-ok |grep 'can be used')" ];
 then
     echo "****************** Kvm can be used, downlading packages ************************"
-    sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+    sudo apt install -y qemu-system libvirt-daemon-system libvirt-clients bridge-utils
 fi;
 
 echo "************* Instalando pacotes via SNAP ****************************"
