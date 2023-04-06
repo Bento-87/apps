@@ -1,3 +1,4 @@
+#!/bin/bash
 # Rodando apt-get update
 echo "*********** Atualizando dados para instalação *****************"
 sudo apt-get -qq update
@@ -17,7 +18,7 @@ then
 fi
 
 echo "************* Instalando pacotes disponiveis via APT ********************"
-sudo apt install geany -y vlc gcolor3 pavucontrol gimp mysql-client gsmartcontrol gparted qbittorrent indicator-cpufreq indicator-sensors htop cpu-checker vim android-tools-adb android-tools-fastboot unzip rar unrar
+sudo apt install -y wget geany vlc gcolor3 pavucontrol gimp mysql-client gsmartcontrol gparted qbittorrent indicator-cpufreq indicator-sensors htop cpu-checker vim android-tools-adb android-tools-fastboot unzip rar unrar
 
 # Verifica se o kvm pode ser utilizado
 if [ "$(kvm-ok |grep 'can be used')" ];
