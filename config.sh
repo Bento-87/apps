@@ -82,6 +82,7 @@ wget -O edge.deb $e_link
 sudo dpkg -i edge.deb
 
 # Instalando pygrid
+echo "*************** Instalando Pygrid ***********************"
 wget https://raw.githubusercontent.com/pkkid/x11pygrid/master/src/x11pygrid/x11pygrid.py
 cat x11pygrid.py |grep -v single_process.init > x11pygrid
 chmod +x x11pygrid
