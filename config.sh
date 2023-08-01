@@ -88,3 +88,10 @@ wget https://raw.githubusercontent.com/pkkid/x11pygrid/master/src/x11pygrid/x11p
 cat x11pygrid.py |grep -v single_process.init > x11pygrid
 chmod +x x11pygrid
 sudo cp x11pygrid /usr/local/bin
+
+# Brave
+sudo apt install curl
+sudo curl -fsSLo /etc/apt/trusted.gpg.d/brave-browser-release.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+sudo apt update
+sudo apt install brave-browser
